@@ -1,0 +1,284 @@
+fichiers uilises 
+
+index.php : page d'entree du site 
+	include donnees :
+		modeles/membre/classe_membre.php (OK)
+		modeles/recette/classe_recette.php (OK)
+		modeles/ingredient/classe_ingredient.php (OK)
+		modeles/categorie/classe_categorie.php (OK)
+		modeles/sous_categorie/classe_sous_categorie.php (OK)
+		modeles/photo/classe_photo.php (OK)
+		modeles/commentaire/classe_commentaire.php (OK)
+                modeles/preferee/classe_preferee.php (OK)
+		librairies/configuration/popote_conf.php (OK)
+	include navigation :
+		vues/Accueil.php (OK)
+		
+		
+vues/accueil.php : page principale du site qui affiche les differents blocs
+	liens HTML :
+		/popote/vues/css/contenu.css (OK)
+		/popote/controleurs/accueil/resetSession.php (OK)
+	include :
+		controleurs/accueil/bonjour.php (OK)
+		controleurs/accueil/menu.php (OK)
+		controleurs/accueil/contenu.php (OK)
+		controleurs/accueil/commentaires.php (OK)
+                controleurs/piedPage/piedPage.php (OK)
+
+controleurs/accueil/resetSession.php : page sans affichage de reset des donnees de session (home page)
+	header : /popote (OK)
+
+controleurs/accueil/bonjour.php : affichage du bloc en haut a droite " Bonjour ...."
+
+controleurs/accueil/menu.php : bloc d'affichage du menu (dynamique en fonction du user"
+	liens HTML : 
+		controleurs/recette/selectList.php (OK)
+		controleurs/recette/selectrecherche.php (OK)
+		controleurs/membre/select_identification.php (OK)
+		controleurs/membre/select_mes_recettes.php (OK)
+		controleurs/admin/select_admin.php (OK)
+		controleurs/membre/deconnexion.php (OK)
+		
+controleurs/accueil/contenu.php : bloc principal du centre contenant les differentes pages en fonction de variables de session
+	include :
+		controleurs/admin/gestionUser.php (OK)
+		controleurs/admin/gestionRecette.php (OK)
+		controleurs/admin/gestionCategories.php (OK)
+		controleurs/admin/gestionSousCategories.php (OK)
+		controleurs/admin/gestionAdmin.php (OK)
+		controleurs/recette/creerNouvelleRecette.php (OK)
+                controleurs/membre/formulaire_mail.php (OK)
+                controleurs/membre/gestion_compte.php (OK)
+		controleurs/recette/listeRecette.php (OK)
+		controleurs/membre/login.php (OK)
+                controleurs/recette/modificationRecette.php (OK)
+		controleurs/recette/affiche_recette.php (OK)
+                controleurs/recette/recherche.php (OK)
+		
+controleurs/accueil/commentaires.php : bloc d'affichage du commentaire
+	liens HTML :
+		controleurs/accueil/check_commentaire.php (OK)
+		
+controleurs/piedPage/piedPage.php : Affichage du pied de page (a completer)
+        
+controleurs/recette/selectList.php : page activee qd on clique "Recettes" ds le menu
+	header : /popote (OK)
+		
+controleurs/recette/selectrecherche.php : page activee qd on clique "Recherche" ds le menu
+	header : /popote (OK)
+
+controleurs/membre/select_identification.php : page activee qd on clique "S'identifier" ds le menu
+	header : /popote (OK)
+		
+controleurs/membre/select_mes_recettes.php : page activee qd on clique "mes recettes" ds le menu
+	header : /popote (OK)
+
+controleurs/admin/select_admin.php : page activee qd on clique sur admin du menu, permet de selectionner le mode d'affichage d'administration.
+        header : /popote (OK)
+		
+controleurs/membre/deconnexion.php : page activee qd on clique "deconnexion" ds le menu
+	header : /popote (OK)
+		
+controleurs/admin/gestionUser.php : page qui permet a l'affichage de la gestion des users
+        liens HTML :
+                controleurs/admin/changedroits.php (OK)
+                controleurs/admin/deleteuser.php (OK)
+                controleurs/admin/selectHomeAdmin.php  (OK)
+
+controleurs/admin/gestionRecette.php : page qui permet a l'affichage de la gestion des recettes
+        liens HTML :
+                controleurs/recette/changeUserRecette.php (OK)
+                controleurs/recette/changeValideRecette.php (OK)
+                controleurs/admin/selectHomeAdmin.php  (OK)
+
+controleurs/admin/gestionCategories.php : page qui permet a l'affichage de la gestion des categories
+        liens HTML :
+                index.php (OK)
+                controleurs/admin/selectHomeAdmin.php (OK)
+
+controleurs/admin/gestionSousCategories.php : page qui permet a l'affichage de la gestion des sous-categories
+        liens HTML :
+                index.php (OK)
+                controleurs/admin/selectHomeAdmin.php (OK)
+
+controleurs/admin/gestionAdmin.php : affichage du menu des differentes pages d'admin du site
+        liens HTML :
+                controleurs/admin/selectAdminUsers.php (OK)
+                controleurs/admin/selectAdminRecettes.php (OK)
+                controleurs/admin/selectAdminCategories.php (OK)
+                controleurs/admin/selectAdminSousCategories.php (OK)
+
+controleurs/recette/creerNouvelleRecette.php : page d'affichage du formaulaire de creation d'une nouvelle recette
+        liens HTML :
+                controleurs/recette/creeerRecetteBase.php (OK)
+
+controleurs/membre/formulaire_mail.php : affichage du formaulaire permetatnt d'envoyer un mail a un membre du site
+        liens HTML :
+                controleurs/membre/selectEnvoiMail.php (OK)
+        fichiers locaux sur serveur :
+                /tmp/mail.txt (OK)
+        commandes linux externes :
+                mutt (OK)
+
+controleurs/membre/gestion_compte.php : bloc qui affiche la saisie des information de compte pour creation/modification
+	liens HTML :
+		controleurs/membre/modifie_compte.php (OK)
+		controleurs/membre/ajout_compte.php (OK)
+	
+controleurs/recette/listeRecette.php : Bloc d'affichage de la liste des recettes
+	liens HTML :
+		librairies/photo/$maPhoto->lien (OK)
+		controleurs/recette/selectRecette.php (OK)
+		controleurs/recette/selectModificationRecette.php (OK)
+                controleurs/recette/gerePreferee.php (OK)
+                controleurs/recette/gestionPage.php (OK)
+                controleurs/recette/creationRecette.php (OK)
+
+controleurs/membre/login.php : bloc d'affichage de la page de login/demande de creation/oubli d'identifiants
+	liens HTML :
+		controleurs/membre/check_login.php (OK)
+		controleurs/membre/cree_compte.php (OK)
+		controleurs/accueil/mailadmin.php (OK)
+	
+controleurs/recette/selectModificationRecette.php : page de formulaire de modification des champs d'une recette, utilisé aussi lors de la creation d'une recette
+	liens HTML :
+                controleurs/recette/enregistreRecette.php (OK)
+                librairies/photos/$photo->lien (OK)
+
+controleurs/recette/affiche_recette.php : bloc d'afffichage d'une recette
+	liens HTML :
+		librairies/photo/$maPhoto->lien (OK)
+                controleurs/membre/selectEnvoiMail.php (OK)
+		controleurs/recette/voterRecette.php (OK)
+                controleurs/recette/gerePreferee.php (OK)
+
+controleurs/recette/recherche.php : affciahge du formulaire de selection de recherches de recettes
+        liens HTML :
+		controleurs/recette/chercheRecette.php 
+
+controleurs/accueil/check_commentaire.php : page active qui gere la bascule entre modification/affichage du commentaire
+	include donnees :
+		modeles/commentaire/classe_commentaire.php (OK)
+		librairies/configuration/popote_conf.php (OK)
+	liens HTML :
+		/popote (OK)
+	
+controleurs/admin/changedroits.php : page activee lorsque l'on clique sur admin/user ; permet de basculer de l'una  l'autre
+	include donnees :
+                modeles/membre/classe_membre.php (OK)
+        liens HTML :
+		/popote (OK)
+
+controleurs/admin/deleteuser.php : page de suppression d'un membre du site (pas encore codee, du a des problemes de reaffectaion des recettes de ce membre a qq un d'autre)
+	include donnees :
+                modeles/membre/classe_membre.php (OK)
+        liens HTML :
+		/popote (OK)
+        
+controleurs/admin/selectHomeAdmin.php : activee lorsque l'on clique sur retour dans les pages d'admin
+        liens HTML :
+		/popote (OK)
+
+controleurs/recette/changeUserRecette.php : page de changement du user d'une recette donnee
+	include donnees :
+                modeles/membre/classe_membre.php (OK)
+                modeles/recette/classe_recette.php (OK)
+        liens HTML :
+		/popote (OK)
+
+controleurs/recette/changeValideRecette.php : page permettant la bascule de validation d'une recette
+	include donnees :
+                modeles/recette/classe_recette.php (OK)
+		librairies/configuration/popote_conf.php (OK)
+        liens HTML :
+		/popote (OK)
+        
+controleurs/admin/selectAdminUsers.php : activee afin d'afficher la page de gestion des users
+        liens HTML :
+		/popote (OK)
+
+controleurs/admin/selectAdminRecettes.php : activee afin d'afficher la page de gestion des recettes
+        liens HTML :
+		/popote (OK)
+
+controleurs/admin/selectAdminCategories.php : activee afin d'afficher la page de gestion des categories
+        liens HTML :
+		/popote (OK)
+
+controleurs/admin/selectAdminSousCategories.php : activee afin d'afficher la page de gestion des sous-categories
+        liens HTML :
+		/popote (OK)
+
+controleurs/recette/creeerRecetteBase.php : formulaire d'initailisation de creation d'une recette
+	include donnees :
+                modeles/membre/classe_membre.php (OK)
+                modeles/recette/classe_recette.php (OK)
+        liens HTML :
+		/popote (OK)
+
+controleurs/membre/selectEnvoiMail.php : page permettant d'initialiser le formulaire d'envoi de mail et de basculer sur son affichage
+	include donnees :
+                modeles/recette/classe_recette.php (OK)
+		librairies/configuration/popote_conf.php (OK)
+        liens HTML :
+		/popote (OK)
+
+controleurs/membre/modifie_compte.php : page de modification d'un compte utilisateur
+	include donnees :
+		modeles/membre/classe_membre.php (OK)
+	header : /popote (OK)
+
+controleurs/membre/ajout_compte.php : page de creation d'un compte utilisateur
+	include donnees :
+		modeles/membre/classe_membre.php (OK)
+	header : /popote (OK)
+
+controleurs/recette/selectRecette.php : page active qui positionne les parammetres pour l'affichage de la recette choisie
+	header : /popote (OK)
+
+controleurs/recette/gerePreferee.php : page permettant d'activer/desactiver une recette preferee pour un user
+	include donnees :
+		modeles/preferee/classe_preferee.php (OK)
+	header : /popote (OK)
+
+controleurs/recette/gestionPage.php : page gerant la gestion precedent/suivant dans l'affichage de la liste de recettes
+	header : /popote (OK)
+
+controleurs/recette/creationRecette.php : page activee lorsque l'on clique sur le bouton de creation de page, permet d'initialiser le formaulaire de cretiaon
+	header : /popote (OK)
+
+controleurs/membre/check_login.php : recherche en base les infos d'un user et positionne les donnes session corespondantes
+	include donnees :
+		modeles/membre/classe_membre.php (OK)
+	header : /popote (OK)
+
+controleurs/membre/cree_compte.php : page active qui permet d'activer l'affichage de la page de creation de compte
+	header : /popote (OK)
+
+controleurs/accueil/mailadmin.php : page de preparation et d'envoi d'un mail au user avec ses identifiants
+	include donnees :
+		modeles/membre/classe_membre.php (OK)
+        fichiers locaux sur serveur :
+                /tmp/mail.txt (OK)
+        commandes linux externes :
+                mutt (OK)
+	header : /popote (OK)
+
+controleurs/recette/enregistreRecette.php : activee lorsque l'on cique sur le bouton enregistrer la recette dans le formulaire de modification de recette
+	include donnees :
+		modeles/membre/classe_membre.php (OK)
+		modeles/recette/classe_recette.php (OK)
+		modeles/constituant/classe_constituant.php (OK)
+		modeles/photo/classe_photo.php (OK)
+                librairies/configuration/popote_conf.php (OK)
+        repertoires utilises sur serveur :
+                librairies/photos/ (OK)
+	header : /popote (OK)
+
+controleurs/recette/voterRecette.php : page de prise en compte du vote et de recalcul de la note pour 1 recette
+	include donnees :
+		modeles/recette/classe_recette.php (OK)
+		librairies/configuration/popote_conf.php (OK)
+	header : /popote (OK)
+

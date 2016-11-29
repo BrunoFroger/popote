@@ -1,0 +1,894 @@
+html {
+    /*font-size: 100%;*/
+    color: black;
+    font-family: Verdana;
+
+}
+body {
+    margin: 0;
+    font-family: Verdana;
+    font-size: 1em;
+}
+/* cadre de structure ()pointillé rouge) de la page web */
+#global {
+    margin: 0 auto ;
+    width: 960px; 
+    padding: 0;
+    background: #f5ead5;
+
+}
+div {
+    
+    border-radius: 10px;
+    border :0px;
+    border: 1px solid #f5ead5;
+    padding : 1px;
+    border-collapse: collapse;
+   
+}
+
+/* Paragraphes et Titres */
+h1 {
+    font-family: Verdana;
+    margin: 1.5em;
+    text-align: center;
+
+}
+h2 {
+    font-family: Verdana;
+    margin: 1.2em;
+    text-align: left;
+    padding: 0 10px;
+    color : red;
+    font-weight: bold;
+}
+/* h3 : message d erreur (ex: erreur pwd) */
+h3 {
+    font-family: Verdana;
+    font-size: 1em;
+    margin: 10px 3px 10px 3px;
+    text-align: center;
+    padding: 10px;
+    background: yellow;
+    border-radius: 10px;
+}
+h4 {
+    font-family: Verdana;
+    width : auto;
+    font-size: 1em;
+    margin: 0px 0px 5px 0px;
+    text-align: center;
+    padding: 5px;
+    background: orange;
+    border-radius: 10px;
+}
+p {
+    margin:0.2em;
+    padding: 0.5em;
+    font-size :0.9em;
+
+}
+table {
+    /*border: 2px solid greenyellow;*/
+}
+th {
+    color : black;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 1em;
+    padding :0.3em;
+    text-align: left;
+    border: 1px solid black;
+}
+td {
+    color : black;
+    font-size: 0.9em;
+    font-weight: normal;
+    padding :0.1em;
+    text-align: left;
+    /*border: 1px solid black;*/
+}
+textarea {
+    font-family: Verdana;
+    font-size: 0.9em;
+    background: #f5ead5;
+    border-radius: 10px;
+    padding: 3px;
+}
+input {
+    font-family: Verdana;
+    font-size: 1em;
+}
+
+button {
+    border-radius: 30px;
+    color: black;
+    font-family: Verdana;
+    font-size: 1em;
+    padding: 3px;
+    background : orange ;
+    margin: 1px;
+    box-shadow:  0px 0px 0px #f0a40c;
+    border: 0px;
+}
+button:hover {
+    text-decoration: none;
+    background : lightgrey ;
+}
+.petitcaractere {
+    font-size: 0.8em;
+}
+
+input.gobutton {
+    border-radius: 30px;
+    color: black;
+    font-family: Verdana;
+    font-size: 1em;
+    padding: 3px;
+    background : orange ;
+    margin: 1px;
+    border: 0px;
+    
+}
+input.gobutton:hover {
+    text-decoration: none;
+    background : lightgrey ;
+}
+/* class à définir pour le menu ligne général */
+.P0menuligne { 
+    
+}
+/* fin classe menu ligne général */
+/* ESSAI POUR REMPLACER LE BOUTON DU INPUT FILE PAR UN AUTRE MODELE DE BOUTON
+#upload .browse input[type='file']{
+	position: absolute;
+	margin-top: 3px;
+	margin-left: 3px;
+	height: 1px;
+	width: 1px;
+	z-index: -5;
+}
+.browse {
+    background : lightgrey ;
+}
+FIN ESSAI */
+/* elements */
+
+/*#entete, #connect, #menu, #image, #note, #titre, #ingredients,  #preparation, #conseil, #pied-de-page {
+    border: 1px solid #f5ead5;
+}*/
+#contenu {
+    /* border: 2px solid blue; */
+    /* background: orange;*/
+
+}
+#nav {
+    border: 1px solid red;
+
+}
+
+#entete h1 {
+    text-align: left;
+    font-style: italic;
+    font-family: Verdana;
+    font-size: 1.5em;
+}
+
+#entete {
+    width: auto;
+    min-height: 5em;
+    background: orange;
+    position : relative;
+}
+#connect {
+    /*min-width: 80px;*/
+    /*height: auto;*/
+    /*background: #f0a40c ;*/
+    background: #f5ead5;
+    position : absolute;
+    top: 0.5em;
+    right: 0.5em;
+}
+#connect p {
+    text-align: center;
+    font-family: verdana;
+    font-size: 1em;
+    margin :0.5em;
+    padding: 0.2em;
+}
+
+
+#menu {
+    width: auto;
+    max-height: 3em;
+    margin: 0.5em 0em;
+    background: orange;
+}
+#menu ul li {
+    display: inline;
+    padding: 0.5em;
+
+}
+/* cadres description de la recette */
+#contenu {
+    overflow: auto; 
+
+
+}
+#P0navgauche{
+    width: 255px; 
+    overflow-y: auto;
+    border: 2px solid orange;
+    float: left;
+}
+
+#P0pub {
+    padding: 3px;
+    height: auto;
+    text-align: center; 
+    border: 2px solid orange;
+}
+
+
+#P0image {
+    /*width: 98%; */
+    padding: 3px;
+    height: auto;
+    text-align: center; 
+
+
+}
+#P0note {
+    /*width: 97%; */
+    font-size: 0.9em;
+    padding: 3px;
+}
+#imagerecetteXL {
+    width : 95%; 
+}
+
+#imagerecetteXS {
+    /*width : 95%; */
+    width: 3em;
+}
+.P0span {
+    font-weight: bold;
+}
+
+
+#P0navdroite {
+    margin-left: 255px;
+    overflow-x: auto;
+    border-collapse: collapse;
+}
+
+#P0titre {      
+    text-align: left; 
+    padding: 3px;
+    border: 2px solid orange;
+    border-collapse: collapse;
+    margin-top: 0px;
+    margin-bottom: 3px;
+    background: orange;
+}
+
+#P0nav {
+    /*border: 2px solid orange;*/
+    overflow: auto; 
+    margin-top: 0px;
+    margin-bottom: 3px;
+    padding :0px;
+}
+
+#P0ingredients {
+    float : left;
+    width: 375px;
+    min-height: 203px;
+    border: 2px solid orange;
+    border-collapse: collapse;
+    margin: 0px;
+      
+}
+#P0tablistingr  table {
+    max-width : 370px;
+    
+    
+}
+
+#P0categories {
+    font-size : 0.8em;
+    margin :2px 0px 0px 380px; /*margin-left : 380px;*/
+    min-height: 100px;
+    border: 2px solid orange;
+   
+
+}
+
+#P0affichetemps{
+    padding :3px;
+    min-height: 90px;
+    margin :0px 0px 0px 380px; /*margin-left : 380px;*/
+    border: 2px solid orange;
+    border-collapse: collapse;
+    
+}
+    
+#P0preparation {
+    min-height: 250px;
+    border: 2px solid orange;
+    margin-bottom: 3px;
+   
+}
+#P0conseil {
+    min-height: 70px;
+    border: 2px solid orange;
+
+}
+
+
+/* fin cadres description de la recette */
+
+#footer {
+    width: auto;
+    background: orange;
+    min-height: 3em;
+    margin : 0.2em 0em ;
+}
+#footer h1 {
+    padding: 1em;
+    text-align: left;
+    font-style: italic;
+    font-family: Verdana;
+    font-size: 1em;
+}
+/* création/modification compte utilisateur  */
+
+#P5paramcompte {
+    float : left;
+    margin : 0px 0px 5px 0px;
+    padding: 3px;
+    border: 2px solid orange;
+}
+table#P5saisiecompte  {
+    width: 100%;
+}
+
+#P5saisiecompte caption {
+    text-align: center;
+    font-family: Verdana;
+    font-size: 1.2em;
+    border: 2px solid orange;
+    border-radius: 10px;
+    background: orange;
+    margin : 0.2em;
+}
+#P5saisiecompte td, tr {
+    width : 150px;
+}
+
+#P5validcompte {
+    float: right;
+    text-align: center; 
+    margin : 50px 100px 50px 0px;
+    padding: 3px;
+
+}
+
+/* ----------------------------page connexion compte utilisateur  */
+/*  connexion compte utilisateur  */
+#P3identconnexion, #P3mailadmin {
+    margin : 3px;
+    padding: 5px;
+    border: 2px solid orange;  
+    overflow: auto ;
+
+}
+#P3connectmembre {
+    /*border: 2px solid darkorange; */
+    float :left;
+
+}
+
+table#P3saisielogin   {
+    width: 500px;
+}
+#P3validlogin {
+    margin: 50px 0px 10px 50px;
+    float : left;
+    
+}
+
+#P3saisielogin caption    {
+    text-align: center;
+    font-family: Verdana;
+    font-size: 1.2em;
+    border: 2px solid orange;
+    border-radius: 10px;
+    background: orange;
+    margin : 0.2em;
+
+}
+
+/*  fin connexion compte utilisateur  */
+/*créer un compte user */
+#P3creermoncompte {
+    margin : 3px;
+    padding: 10px;
+    border: 2px solid orange;  
+    overflow: auto ;
+    text-align: center;
+
+}
+
+/*  oubli login/pwd mail admin  */
+
+#P3mailinfoperdue {
+    /*border: 2px solid magenta; */
+    float :left; 
+}
+#P3oublilogin caption    {
+     text-align: center;
+    font-family: Verdana;
+    font-size: 1.2em;
+    border: 2px solid orange;
+    border-radius: 10px;
+    background: orange;
+    margin : 0.2em;
+    
+}
+#P3envoimailadmin {
+    margin: 1em;
+    float : left;
+    
+}
+
+table#P3oublilogin   {
+    width: 600px;
+}
+
+/*  oubli login/pwd mail admin  */
+/* affichage zone commentaire */
+#P0majcomment, #P0modifcomment  {
+    border: 1px solid #f5ead5;
+}
+#commentaire {
+    border: 2px solid orange; 
+    background: orange;
+    overflow: auto;
+    margin-bottom: 3px;
+    margin-top: 0px;
+
+}
+#zonecomment {
+    max-width: 650px;
+    float: left;
+    border: none;
+}
+#zonecomment p {
+    text-align: left;
+    font-family: Verdana;
+    font-size: 0.9em;
+    padding: 5px;
+
+}
+
+#modifcomment {
+    border: 2px solid orange; 
+    margin-left: 655px;
+    text-align: center;
+
+}
+
+/*fin affichage zone commentaire */
+/* ajout & modif commentaires perso sur recette site */
+
+#addcomment {
+    width: 650px;
+    min-height: 15px;
+    border: 2px solid orange; 
+    float: left;  
+}
+#addcomment label  {
+    text-align: left;
+    font-family: Verdana;
+    font-size: 0.8em;
+
+}
+
+#savecomment {
+    border: 2px solid orange; 
+    margin-left: 655px;
+    text-align: center;
+}
+#commentajout {
+    text-align: left;
+    font-family: Verdana;
+    font-size: 0.8em;
+    padding: 5px;
+    margin : 5px;
+    
+
+}
+
+
+/* fin ajout & modif commentaires perso sur recette site */
+/* gestion affichage liste des recettes */
+#P1listingrecette {
+    border: 2px solid orange;
+    padding: 3px;
+    margin-bottom: 3px;
+    
+}
+#P1navpage {
+    padding: 3px;
+    float: left;
+    
+}
+#P1newrecette {
+       margin-right: 50px;
+    text-align: right;
+    padding: 3px;
+}
+
+#updown {
+    border: 2px solid orange;  
+    text-align: center;
+    font-family: verdana;
+min-height: 40px;
+padding : 3px;
+
+}
+#P1criteresrecherche {
+    border: 2px solid orange;  
+    
+}
+#P1criteres2 caption {
+    text-align: center;
+    font-family: Verdana;
+    font-size: 1.2em;
+    border: 2px solid orange;
+    border-radius: 10px;
+    background: orange;
+    margin : 0.2em;
+    min-width : 350px;
+}
+#P1criteres2  {
+    margin-left : 250px;
+    margin-bottom: 5px;
+}
+#P1criteres2  td{
+    min-width: 200px;
+}
+
+
+
+/* fin gestion affichage liste des recettes */
+
+
+.cadretitre { 
+    border: 2px solid yellowgreen;
+}
+.cadretitre h1 {
+    font-size: 1.5em;
+    font-style: italic;
+    text-align: center;
+
+}
+.cadretitre p {
+    font-size: 1em;
+    text-align: center;
+}
+
+/* fin commun saisie/modif recette */ 
+/* nouvelle recette - titre / catégorie / ss catégorie  Etape 1*/
+#P7newrecette1 {
+    /*border: 2px solid orange;*/
+    margin-left: 150px;
+    margin-top : 3px;
+    margin-bottom: 3px;
+    padding :0px;
+    border-collapse: collapse;
+    width : 600px;
+}
+#P7cadretitre {
+     border: 2px solid orange;
+     margin: 0px;
+     border-collapse: collapse;
+}
+
+#P7cadretitre h1{
+    font-size: 1.5em;
+    font-style: italic;
+    text-align: center;
+    
+}
+
+#P7newtitre {
+    border: 2px solid orange;
+    padding: 1em;
+}
+#newtitre1 {
+    width: 500px;
+    font-size : 1em;
+}
+
+#P7categoriemandatory {
+    border: 2px solid orange;
+    padding: 1em;
+}
+
+#P7validnewrecette  {
+    border: 2px solid orange;
+    padding: 1em;          
+}
+/* fin nouvelle recette */ 
+
+/*saisie liste ingredients */
+/*#newlisteingredient {
+    border: 2px solid mediumslateblue;
+    text-align: left;  
+}*/
+/*#ajoutunitaire {
+    border: 2px solid orange;
+    margin : 0 auto;
+    text-align: left;
+    font-family: Verdana;
+    font-size: 0.8em;
+    padding: 0.2em; 
+}*/
+/*saisie liste ingredients  Etape 2*/
+/*#etapesuivante   {
+    border: 2px solid orange;
+    margin : 0 auto;
+    text-align: right;
+    font-family: Verdana;
+    font-size: 0.8em;
+    padding: 0.2em; 
+}*/
+
+/*saisie paramètres globaux nouvelle recette Etape 3*/
+
+
+/* mofication d'une nouvelle recette */
+
+#P8paramgauche {
+    border: 2px solid orange;
+    float: left;
+    text-align: left;
+    font-family: Verdana;
+    font-size: 0.8em;
+    margin-left: 0px;
+    padding: 3px;
+
+}
+#P8modiftitre {
+    padding: 3px;
+    font-size: 1em;
+}
+#modiftitre1 {
+    width: 480px;
+    font-size: 1em;
+}
+
+#P8modifpreparation {
+    padding: 3px;
+    font-size: 1em;
+    
+}
+#modifpreparation1 {
+
+}
+#P8modifconseil {
+    padding: 3px;
+    font-size: 1em;
+}
+#modifconseil1 {
+
+}
+#P8modifphoto {
+    padding: 3px;
+    font-size: 1em;
+        }
+#P8zonephotoxs{
+    float : left;         
+    }
+#P8infophoto {
+        float : right;
+    }
+#P8uploadphoto{
+     
+}
+
+#P8paramdroite {
+    border: 2px solid orange; 
+    margin-left: 550px;
+    text-align: left;
+    font-family: Verdana;
+    font-size: 0.8em;
+    padding: 3px;
+    height: auto;
+    margin-right: 0px;
+       
+}
+#P8modifparamliste {
+   margin: 0px;
+   padding : 0px;
+   border-collapse: collapse; 
+}
+#P8modifnbpers {
+    padding: 3px;
+    font-size: 1em;
+    margin: 0px;
+}
+
+#P8modiftps {
+     padding: 3px;
+    font-size: 1em;
+}
+#P8modifallcategories {
+    padding: 3px;
+    font-size: 1em;
+    margin: 0px;
+}
+
+
+
+#P8memoingredient  {
+    padding: 3px;
+    font-size: 1em;
+    text-align: left;   
+}
+#P8affichetableingredientsaisi   {
+    text-align: left;
+    padding: 3px;
+    margin: 0px;
+}
+#P8validmodifrecette {
+    text-align: center;   
+    padding: 3px;
+    margin: 0px;
+}
+
+/*Fin saisie d'une nouvelle recette */
+
+/* recherche d une recette selon des criteres */
+#P4criteres{
+    border: 2px solid orange; 
+    float : left; 
+    margin : 0px 0px 5px 0px ;
+    padding : 5px; 
+    
+}
+#P4validcriteres {
+    float: right;
+    margin : 0px 150px 5px 0px ;
+    padding : 5px; 
+    
+}
+
+
+
+/* fin recherche */
+
+/* gestion admin */
+#P6adminaccueil{
+    text-align: center; 
+}
+
+.P6listemenu1 {
+    font-family: Verdana; 
+    text-align: center;
+    border-radius: 10px;
+    background: orange; 
+    border: 0px solid orange;
+    text-decoration: none;
+    padding: 5px;
+    margin: 5px;
+    
+}
+.P6listemenu1:hover {
+    text-decoration: none;
+    background : lightgrey;
+}
+
+.P6listemenu2 {
+    font-family: Verdana; 
+    font-size : 0.8em;
+    text-align: center;
+    border-radius: 10px;
+    background: orange; 
+    border: 0px solid orange;
+    text-decoration: none;
+    padding: 3px;
+    margin: 2px;
+    
+}
+.P6listemenu2:hover {
+    text-decoration: none;
+    background : lightgrey;
+}
+
+
+/* gestion membres */
+
+#P61tabusers {
+    border: 2px solid orange; 
+    float : left; 
+    margin : 0px 0px 5px 0px ;
+    padding : 5px; 
+   
+}
+#P61gestionretour {
+    float: right;
+    margin : 0px 150px 5px 0px ;
+    padding : 5px; 
+}
+/* gestion recette */
+
+#P62tabrescette {
+    border: 2px solid orange; 
+    float : left; 
+    margin : 0px 0px 5px 0px ;
+    padding : 5px; 
+    max-width: 845px;
+   
+}
+#P62gestionretour {
+    float: right;
+    margin : 50px 3px 5px 0px ;
+    padding : 5px; 
+}
+/* gestion categorie */
+
+#P63tabcategorie {
+    border: 2px solid orange; 
+    float : left; 
+    margin : 0px 0px 5px 0px ;
+    padding : 5px; 
+    
+   
+}
+#P63gestionretour {
+    float: right;
+    margin : 50px 150px 5px 0px ;
+    padding : 5px; 
+}
+/* gestion ss-categorie */
+
+#P64tabsscategorie {
+    border: 2px solid orange; 
+    float : left; 
+    margin : 0px 0px 5px 0px ;
+    padding : 5px; 
+    
+   
+}
+#P64gestionretour {
+    float: right;
+    margin : 50px 150px 5px 0px ;
+    padding : 5px; 
+}
+
+
+/* formulaire  mail */
+#P9messagealerte {
+    
+}
+#P9envoimail{
+    
+}
+
+#P9boutonenvoi {
+    position: absolute;
+        bottom: 5px;
+        right: 5px;
+    margin: 5px;
+    
+}
+#P9formulairemail {
+   border: 2px solid orange; 
+   margin: 0px 0px 5px 0px;
+   position: relative;
+}
+
+/* fin formulaire mail */

@@ -1,0 +1,179 @@
+<?php
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+session_start();
+
+$myIncludePath = '/var/www/html/popote';
+set_include_path(get_include_path() . PATH_SEPARATOR . $myIncludePath);
+
+include_once 'librairies/configuration/popote_conf.php';
+include_once 'modeles/recette/classe_recette.php';
+
+$_SESSION['typeContenu'] = 'envoi_mail';
+//echo "<br> typeContenu = " . $_SESSION['typeContenu'];
+
+if (isset($_GET['user'])) {
+    $_SESSION['destinataireMail'] = $_GET['user'];
+}else{
+    //if (isset($POST['expediteur']))
+}
+//echo "<br> destinataireMail = " . $_SESSION['destinataireMail'];
+$_SESSION['recetteMail'] = $_GET['recette'];
+//echo "<br> recetteMail = " . $_SESSION['recetteMail'];
+$recette = recette::NewById($_GET['recette']);
+//echo "<br> recette titre = " . $recette->titre;
+
+if (isset($_POST['contenu'])) {
+    $_SESSION['contenuMail'] = $_POST['contenu'];
+} else {
+    unset($_SESSION['contenuMail']);
+}
+echo "<br> contenu = " . $_SESSION['contenuMail'];
+
+if (isset($_POST['expediteur'])) {
+    $_SESSION['expediteur'] = $_POST['expediteur'];
+} else {
+    unset($_SESSION['expediteur']);
+}
+echo "<br> contenu = " . $_SESSION['contenuMail'];
+
+if (isset($_POST['sujet'])) {
+    //echo "<br> POST sujet existe = " . $_POST['sujet'];
+    $_SESSION['sujetMail'] = $_POST['sujet'];
+} else {
+    //echo "<br> POST sujet n'existe pas = " . $_POST['sujet'];
+    $_SESSION['sujetMail'] = "MaPopoteAuQuotidien : " . $recette->titre;
+}
+//echo "<br> sujet = " . $_SESSION['sujetMail'];
+
+if (isset($_GET['mode'])) {
+    if ($_GET['mode'] == 'send') {
+        echo "<br> on active l'envoi de mail Session(sendMail = " . $_SESSION['sendMail'];
+        $_SESSION['sendMail'] = 'send';
+        $sendmail = $_SESSION['sendMail'];
+    } else {
+        unset($_SESSION['sendMail']);
+        $sendmail = '';
+    }
+}
+echo "<br> sendMail = " . $_SESSION['sendMail'];
+
+//echo "<br>on sort de selectEnvoiMail.php <br>";
+//echo "<a href=/popote/index.php>Continuer</a>";
+header("location: /popote");
+
+
+exit;
+
+/*
+include 'modeles/membre/classe_membre.php';
+include 'modeles/recette/classe_recette.php';
+
+if (isset($_SESSION['membre'])) {
+    $membre = unserialize($_SESSION['membre']);
+    $expediteur = $membre->email;
+} else {
+    $membre = null;
+    if (isset($_POST['expediteur'])) {
+        $expediteur = $_POST['expediteur'];
+    } else {
+        $expediteur = '';
+    }
+}
+//echo "<br> expediteur = $expediteur";
+
+if (isset($_POST['contenu'])) {
+    $contenu = $_POST['contenu'];
+} else {
+    $contenu = '';
+}
+//echo "<br> contenu = $contenu";
+
+// recuperation de l'adresse mail du destinataire
+$user = $_GET['user'];
+$destinataire = membre::NewByLogin($user);
+// recuperation de l'id de la recette 
+$idRecette = $_GET['recette'];
+$recette = recette::NewById($idRecette);
+//echo "<br> id_recette = $idRecette ($recette->titre)";
+
+if (isset($_POST['sujet'])) {
+    $sujet = $_POST['sujet'];
+} else {
+    $sujet = "MaPopoteAuQuotidien : $recette->titre";
+}
+//echo "<br> sujet = $sujet";
+
+if (isset($_GET['mode'])) {
+    if ($_GET['mode'] == 'send') {
+        // le mail a ete validé on l'envoie et on retourne a la page principale
+        // recuperation du texte du mail
+        if ($contenu == '' || $expediteur == '') {
+            echo "<br><br><h1>Impossible d'envoyé le mail</h1>"
+            . "<br><h2>adresse mail vide"
+            . "<br>ou contenu vide</h2><br><br>";
+        } else {
+            //echo "<br> contenu du mail : [$contenu]";
+            // contruction du mail 
+            file_put_contents("/tmp/mail.txt", "to: $destinataire->email\n");
+            file_put_contents("/tmp/mail.txt", "from: Ma Popote Au quotidien <popote@orange-labs.fr>\n", FILE_APPEND);
+            file_put_contents("/tmp/mail.txt", "subject: $sujet\n", FILE_APPEND);
+            file_put_contents("/tmp/mail.txt", "message de la part de $expediteur\n", FILE_APPEND);
+            file_put_contents("/tmp/mail.txt", "<br>$contenu\n", FILE_APPEND);
+            $cmd = "mutt -H - -n "
+                    . " -e 'set ssl_starttls=no'"
+                    . " -e 'set smtp_url=\"smtp://10.194.112.86\"'"
+                    . " -e 'set content_type=\"text/html\"'"
+                    . " -e 'set hostname=\"orange-labs.fr\"'"
+                    . " < /tmp/mail.txt";
+            shell_exec($cmd);
+            echo "<br> Le mail a été envoyé";
+            echo "<br> <a href=/popote/index.php>Continuer</a>";
+            exit;
+        }
+    }
+}
+
+
+//on affiche la page de remplissage du mail
+
+echo "<form method='POST' encType='multipart/text-data' action='envoiMail.php?recette=$recette->id_recette&user=$destinataire->login&mode=send'>";
+echo "  <table>";
+if ($membre != null) {
+    echo "      <tr>";
+    echo "          <td>expediteur : </td>";
+    echo "          <td>$membre->email</td>";
+    echo "      </tr>";
+} else {
+    echo "      <tr>";
+    echo "          <td>expediteur : </td>";
+    echo "          <td><input type='email' name='expediteur' size=100 value=$expediteur></td>";
+    echo "      </tr>";
+}
+echo "      <tr>";
+echo "          <td>destinataire : </td>";
+echo "          <td>$destinataire->email</td>";
+echo "      </tr>";
+echo "      <tr>";
+echo "          <td>Sujet du mail : </td>";
+echo "          <td><input type='text' name='sujet' size=100 value='$sujet'></td>";
+echo "      </tr>";
+echo "      <tr>";
+echo "          <td>texte du mail : </td>";
+echo "          <td><textarea rows='15' cols='75' name='contenu'>$contenu</textarea></td>";
+echo "      </tr>";
+echo "  </table>";
+echo "  <input class='gobutton' type='submit' value='Envoyer'>";
+echo "</form>";
+exit;
+
+echo "<br>on sort de envoiMail.php <br>";
+echo "<a href=/popote/index.php>Continuer</a>";
+//header("location: /popote");
+?>
+*/

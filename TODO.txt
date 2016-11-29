@@ -1,0 +1,102 @@
+17/12 [Bruno] : 
+    - correction du bug de gestion du commentaire quand on selectionne une autre recette ou la liste des recettes
+    - debut dev gestion users
+
+21/12 :
+[Bruno] : 
+    - creation de la page de creation de recette
+    - ajout de la modification du type de user (admin/user) en mode admin
+    - ajout suppression d'un user (pas de prise en compte des elements dependant de ce user) dans les autres tables (reporter les elements de la bases a un user fictif)
+    - ajout du lien vers modification de recettes dans la liste des recettes d'un user
+
+22/12
+[Bruno] :
+    - mise en place partielle de la page de modification de recette avec update de la base
+    - validation des recettes créées par un admin dans la page d'admin 
+    - dans afffichage de la liste des recettes n'afficher que les recettes validees
+    - ajouter la gestion des notes
+    - gestion de l'ajout des ingredients pour la modification de recette
+    - gestion de la suppresion des ingredients pour la modification de recette
+
+23/12
+[Bruno] :
+    - dans la modification de recette, gestion des categories de prix et difficulte
+    - modification de la taille de certains VARCHAR en base de donnée (table recette)
+    - dans la modification de recette ajout de la gestion photo (la photo doit exister dans le repertoire ad-hoc)
+
+29/12
+[Bruno] :
+    - mise en place de l'upload de fichier pour les photos de recettes, dans le repertoire librairies/photos, prefixees par le login du user.
+
+31/12
+[Bruno] :
+    - affichage du login du createur d'une recette.
+    - envoi d'un message (mail) au membre qui a publie une recette
+
+03/01
+[Bruno] :
+    - gestion des preferees, creation de la table, activation preferee dans affiche recette, et affichage des preferees dans la liste des recettes
+
+04/01
+[Bruno] :
+    - finalisation de la gestion des recettes preferees
+    - modification de liens en boutons clicables
+
+04/01
+[Bruno] :
+    - modification de la gestion du calcul des notes, ajout de la somme des notes en base, du fait que ce sont des entiers stockes en base, au bout d'un certain temps, le vote n'avait plus d'impact quelque soit la note votee.
+    - mes recettes : visualiser les recettes non validées de l'auteur 
+    - le _popote est le user "super admin" : non modifiable / non suprimable.
+    - possibilite de creer des constituants lors de la creation/modification de recette
+    _ integration des messages d'erreur de login dans la page d'authentification.
+[HLQ]
+    - Remettre à jour la table SQL / modif.
+
+06/01
+[Bruno] :
+    - ajout dans la recherche de recette la selection des categories et sous categories
+    - resolution du probleme de desactivation du critere de recherche de recette
+    - imposssible d'ajouter une photo sur une recette (probleme de limitation de la taille de la photo) => resolu
+    - 1 page gestion user / recette 
+[HLQ]
+    - cf. modifier les commentaires : debordement carré texte
+    - homogénéiser les couleurs / polices des toutes les pages web => Helene (en cours)
+
+07/01
+[Bruno] :
+    - completer page admin avec gestion categories et sous categories 
+    - probleme de calcul du nombre de recettes a afficher dans le cas ou une recherche a ete activee ou si des recettes ne sont pas validees => Bruno => resolu
+    - pb de saisie sur les ingredient qd modif recette.
+    - demande j'ai oublié mon login : valeur affichée dans la zone de saisie mauvaise apres validation OK sur "demande infos connexion"
+    - dans rubrique "mon compte" : qd 1 champ non renseigné alors message d'erreur non conforme
+    - saisie d'une nouvelle recette : apres saisie nom de la recette, page de saisie descriptif...s'affiche sur une autre recette.
+    - lors de l'affichage de la liste de recette apres recherche, suivant et precedent fait perdre les criteres de recherche.
+[HLQ]
+    - homogénéiser les couleurs / polices des toutes les pages web => Helene (en cours)
+
+12/01
+[Bruno] : 
+    - correction bug sur la creation de recettes
+    - remise en forme de la page d'envoi de mails
+[Helene] : 
+    - homogénéiser les couleurs / polices des toutes les pages web => Helene (en cours)
+
+******************
+*
+*   Reste a faire
+*
+******************
+    - reporter les elements d'un user supprime vers un user fictif (popote)
+    - completer le pied de page : nous contacter (envoi sur page avec envoi mail à la liste de admin.
+    - creation d'un forum
+    - homogénéiser les pages web => Helene [reste page creation et modif. recette]
+    - suppression de recettes : remplacer le propriétaire par _popotte bool valid = false.
+    - validation fonctionnelle E2E pour les 3 profils : visiteur, membre, admin
+    - ajouter la possibilite d'afficher la liste des recettes preferee, soit un nouvel item de menu, soit un critere de recherche particulier (moins facile a coder).
+
+    - gestion de page (precedent / suivant) pour tous les menus de Gestion admin [pas obligation car comme page admin, on n'est pas limité dans la longueur de page]
+    - lors de l'affichage d'une page aleatoire, les pages non validees peuvent etre selectionnees.
+
+
+    
+    
